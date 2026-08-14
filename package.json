@@ -15,6 +15,14 @@
     "multimodal"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanxinwang-ml/dsh-plugin-vision-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yanxinwang-ml/dsh-plugin-vision-tool/issues"
+  },
+  "homepage": "https://github.com/yanxinwang-ml/dsh-plugin-vision-tool#readme",
   "type": "module",
   "main": "index.js",
   "files": [
