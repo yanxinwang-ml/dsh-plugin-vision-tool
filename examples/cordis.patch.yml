@@ -1,0 +1,12 @@
+# 示例：将以下内容合并进你的 profile 的 cordis.patch.yml
+# （例如 $DSH_HOME/profiles/web/cordis.patch.yml，或你自定义 profile 的同名文件）
+#
+# 注意：cordis.patch.yml 是启动时组装的配置树，改动后需重启实例生效；
+# 若实例已运行，可参考 README「常见问题」中关于热重载的说明。
+
+- insert:
+    - id: vision-tool
+      name: 'dsh-plugin-vision-tool'
+      config:
+        provider: zhipu          # llm-pi-ai 中配置的 provider 路由名
+        model: glm-4.6v-flash    # 视觉模型 id

@@ -1,0 +1,21 @@
+# 示例：将以下 section 合并进 $DSH_HOME/settings.yaml（热加载，无需重启）
+#
+# llm-pi-ai 段声明视觉模型路由（默认文本模型可保持 DeepSeek）。
+# ZHIPU_API_KEY 的值存入 $DSH_HOME/.credentials.yaml：
+#   ZHIPU_API_KEY: <your key>
+
+llm-pi-ai:
+  providers:
+    zhipu:
+      displayName: 智谱 GLM-4.6V-Flash
+      api: openai-completions
+      baseURL: https://open.bigmodel.cn/api/paas/v4
+      apiKeyEnv: ZHIPU_API_KEY
+      models:
+        - id: glm-4.6v-flash
+          input: [text, image]   # 关键：声明 image 模态，DSH 门控才会放行
+
+# 可选：保持默认文本模型为 DeepSeek（不改则维持 DSH 自带默认）
+agent-default-model:
+  provider: deepseek-official
+  model: deepseek-v4-flash

@@ -1,0 +1,13 @@
+# dependencies / build artifacts
+node_modules/
+*.tgz
+*.log
+
+# local test leftovers
+.npm-cache/
+.dshtest/
+.tgzcheck/
+
+# editor / OS
+.DS_Store
+Thumbs.db
