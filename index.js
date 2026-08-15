@@ -1,4 +1,4 @@
-﻿import { basename, extname } from "node:path";
+import { basename, extname } from "node:path";
 import z from "@deepseek-ai/schemastery";
 import { defineTool } from "@deepseek-ai/dsh-tools";
 import { createUserMessage } from "@deepseek-ai/dsh-llm";
@@ -23,6 +23,11 @@ import { createUserMessage } from "@deepseek-ai/dsh-llm";
  */
 
 export const name = "dsh-plugin-vision-tool";
+
+/** Hard dependency: wait for the tool registry before registering analyze_image
+ *  (without `inject`, a fresh startup may activate this plugin before the
+ *  `tools` service mounts, and apply() would then return without registering). */
+export const inject = ["tools"];
 
 /** Provider route and vision model, configurable through the plugin row's `config`. */
 export const Config = z.object({
