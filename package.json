@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-vision-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Image recognition for text-only DeepSeek Harness models: registers the analyze_image tool, routing images to a dedicated vision model (default zhipu/glm-4.6v-flash) through the harness's own ctx.llm seam. 给纯文本模型（如 DeepSeek）加识图能力：文本模型会话也能'看图'。",
   "keywords": [
     "deepseek-harness",
