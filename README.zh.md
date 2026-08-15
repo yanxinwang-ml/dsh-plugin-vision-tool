@@ -118,7 +118,7 @@ agent 会自动调用 `analyze_image` 工具。
 
 - **`429 {"code":"1305","message":"该模型当前访问量过大"}`**：免费视觉模型高峰限流。插件已自动重试 4 次，仍失败请稍后再试，或把 `config.model` 换成付费模型（如 `glm-4.5v`）。
 - **`Stored attachment metadata does not match its reference`**：请使用本包自带的 index.js（曾有过只传部分附件元数据的旧版本，已修复）。
-- **修改代码后不生效**：HMR 忽略 node_modules。需重启实例，或按加载器规则改动 `cordis.patch.yml` 中该行的 `name` 触发重新导入。
+- **修改代码后不生效**：HMR 忽略 node_modules，且 Node 的 ESM 缓存会保留同一文件 URL 之前加载的模块（改插件行 name 只对"新 URL"生效，改回旧名字会命中旧缓存）。**重启实例**才是可靠的方式。
 - **`read_image` 工具报"模型不支持图片"**：这是 DSH 内置工具，要求会话模型本身支持图片；纯文本模型会话请使用 `analyze_image`。
 
 ## 兼容性

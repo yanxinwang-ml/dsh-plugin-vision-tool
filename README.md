@@ -118,7 +118,7 @@ The agent calls `analyze_image` automatically.
 
 - **`429 {"code":"1305","message":"该模型当前访问量过大"}`**: rate limit on the free vision model. The plugin already retries 4 times; wait a while and retry, or switch `config.model` to a paid model (e.g. `glm-4.5v`).
 - **`Stored attachment metadata does not match its reference`**: use the `index.js` shipped with this package (an old version passed only partial attachment metadata; fixed).
-- **Code changes don't take effect**: HMR ignores `node_modules`. Restart the instance, or change the row's `name` in `cordis.patch.yml` to force a loader re-import.
+- **Code changes don't take effect**: HMR ignores `node_modules` and Node's ESM cache keeps the previously loaded module for the same file URL (renaming the plugin row only re-imports a *different* URL). **Restart the instance** — that is the reliable way to load updated plugin code.
 - **`read_image` reports "model does not support images"**: that is DSH's built-in tool, which requires the session model itself to support images; text-only sessions should use `analyze_image`.
 
 ## Compatibility
